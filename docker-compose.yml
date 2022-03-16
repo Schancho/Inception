@@ -1,0 +1,11 @@
+version: '3'
+services:
+  wordpress:
+    build: ./wordpress
+    ports:
+      - "9000:9000"
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
