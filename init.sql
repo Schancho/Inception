@@ -1,0 +1,4 @@
+CREATE DATABASE wp_database;
+CREATE USER 'wp_user'@'%' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON wp_database.* TO 'wp_user'@'%';
+FLUSH PRIVILEGES;
