@@ -5,7 +5,7 @@ RUN apt-get -y install nginx
 RUN rm -rf /etc/nginx/sites-enabled/default
 COPY wordpress /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
-# wp
+
 RUN apt-get -y install  php7.3-cli php7.3-cgi php7.3-fpm php-mysql wget
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xf latest.tar.gz 

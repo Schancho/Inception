@@ -1,0 +1,40 @@
+version: '3'
+services:
+  wordpress:
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress
+    restart : always
+    ports:
+      - "9000:9000"
+    volumes:
+      - wordpress:/var/www/
+  nginx:
+    build: ./requirements/nginx/
+    ports:
+      - "443:443" 
+    restart : always
+    volumes:
+      - wordpress:/var/www/
+  mariadb:
+    build: ./requirements/mariadb
+    ports:
+      - "3306:3306"
+    restart : always
+    volumes:
+      - mariadb:/var/lib/mysql
+
+volumes:
+ wordpress:
+  driver: local
+  driver_opts:
+   o: bind
+   type: ext4
+   device: /home/schancho/data/wordpress
+ mariadb:
+  driver: local
+  driver_opts:
+   o: bind
+   type: ext4
+   device: /home/schancho/data/mariadb
+
