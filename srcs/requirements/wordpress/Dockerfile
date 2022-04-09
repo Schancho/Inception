@@ -3,7 +3,6 @@ FROM debian:buster
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install vim  php-fpm php-mysql wget unzip
 
-# RUN rm -rf /var/wordpress/wp-config-sample.php
 COPY wp-config.php .
 
 ENTRYPOINT  [ ! -d "/var/www/wordpress/" ] \
